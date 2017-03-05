@@ -1,15 +1,13 @@
 package com.edu.heroku.test;
 
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class TestController {
 
-    @Autowired
-    private UserRepository userRepository;
+//    @Autowired
+//    private UserRepository userRepository;
 
     @RequestMapping(value = "/")
     public String home() {
@@ -28,18 +26,18 @@ public class TestController {
 
     @RequestMapping(value = "/user/{id}", method = RequestMethod.GET)
     public User getUser(@PathVariable long id) {
-//        User user = new User();
-//        user.setId(id);
-//        user.setName("sherif");
-//        return user;
-        return userRepository.findOne(id);
+        User user = new User();
+        user.setId(id);
+        user.setName("sherif");
+        return user;
+//        return userRepository.findOne(id);
     }
 
-    @RequestMapping(value = "/user", method = RequestMethod.POST)
-    @ResponseStatus(HttpStatus.CREATED)
-    public void addUser(@RequestBody User user) {
-        userRepository.save(user);
-    }
+//    @RequestMapping(value = "/user", method = RequestMethod.POST)
+//    @ResponseStatus(HttpStatus.CREATED)
+//    public void addUser(@RequestBody User user) {
+//        userRepository.save(user);
+//    }
 
 
 }
