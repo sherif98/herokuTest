@@ -18,4 +18,10 @@ public class HerokuTestApplication {
     public String home() {
         return "Hello World !";
     }
+
+    @RequestMapping(value = "/test")
+    public String home2() {
+        return "Hello World ! test path";
+    }
+
 }
